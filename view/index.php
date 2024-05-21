@@ -1,24 +1,32 @@
 <?php
+// Incluir el controlador de Profesor
 require_once '../controller/ProfesorController.php';
 
+// Crear una instancia de conexión a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Crear una instancia del controlador de Profesor
 $controller = new ProfesorController($conn);
 
+// Variables para el formulario y la edición
 $update = false;
 $id = '';
 $nombre = '';
 $años = '';
 $especialidad = '';
 
+// Verificar si se está solicitando la edición de un profesor
 if (isset($_GET['editar'])) {
     $update = true;
     $id = $_GET['editar'];
+    // Obtener los datos del profesor por su ID
     $profesor = $controller->obtenerPorId($id);
     $nombre = $profesor['nombre'];
     $años = $profesor['años'];
     $especialidad = $profesor['especialidad'];
 }
 
+// Obtener todos los profesores
 $profesores = $controller->obtenerTodos();
 ?>
 
@@ -33,6 +41,7 @@ $profesores = $controller->obtenerTodos();
 <body>
     <div class="container">
         <h1>CRUD Profesores</h1>
+        <!-- Formulario para añadir o editar un profesor -->
         <form action="../controller/ProfesorController.php" method="POST">
             <div class="form-group">
                 <label>ID:</label>
@@ -51,8 +60,9 @@ $profesores = $controller->obtenerTodos();
                 <input type="text" name="especialidad" value="<?php echo $especialidad; ?>">
             </div>
             <div class="buttons">
+                <!-- Mostrar botón para actualizar o guardar nuevo profesor -->
                 <?php if ($update): ?>
-                    <button type="submit" name="actualizar">OK</button>
+                    <button type="submit" name="actualizar">Actualizar</button>
                 <?php else: ?>
                     <button type="submit" name="guardar">Guardar</button>
                 <?php endif; ?>
@@ -60,10 +70,12 @@ $profesores = $controller->obtenerTodos();
             </div>
         </form>
 
+        <!-- Formulario para mostrar todos los profesores -->
         <form action="" method="GET">
-            <button type="submit" name="mostrar">Mostrar</button>
+            <button type="submit" name="mostrar">Mostrar Todos</button>
         </form>
 
+        <!-- Tabla para mostrar todos los profesores -->
         <div class="table-container">
             <table>
                 <thead>
@@ -82,6 +94,7 @@ $profesores = $controller->obtenerTodos();
                             <td><?php echo $row['nombre']; ?></td>
                             <td>
                                 <?php
+                                // Mostrar "año" o "años" según el valor de 'años'
                                 if ($row['años'] == 1) {
                                     echo $row['años'] . ' año';
                                 } else {
@@ -91,7 +104,9 @@ $profesores = $controller->obtenerTodos();
                             </td>
                             <td><?php echo $row['especialidad']; ?></td>
                             <td>
+                                <!-- Enlace para editar el profesor -->
                                 <a href="../view/index.php?editar=<?php echo $row['id']; ?>" class="button">Editar</a>
+                                <!-- Enlace para eliminar el profesor -->
                                 <a href="../controller/ProfesorController.php?eliminar=<?php echo $row['id']; ?>" class="button delete-button">Eliminar</a>
                             </td>
                         </tr>
@@ -104,5 +119,6 @@ $profesores = $controller->obtenerTodos();
 </html>
 
 <?php
+// Cerrar la conexión a la base de datos
 $conn->close();
 ?>

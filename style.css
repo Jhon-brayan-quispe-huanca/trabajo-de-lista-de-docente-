@@ -1,43 +1,50 @@
+/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('./img/BRAYAN.jpg');
+    background: url('./img/BRAYAN.jpg'); /* Fondo de la página */
     background-size: cover;
-    color: #333;
+    color: #333; /* Color del texto */
 }
 
+/* Estilos del contenedor principal */
 .container {
     width: 800px;
-    margin: 50px auto;
+    margin: 50px auto; /* Centrar horizontalmente */
     background: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
+/* Estilos del título principal */
 h1 {
     text-align: center;
-    color: #4CAF50;
+    color: #4CAF50; /* Color del título */
 }
 
+/* Estilos del formulario */
 form {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; /* Espacio entre elementos */
 }
 
+/* Estilos de los grupos de formulario */
 .form-group {
-    flex-basis: 48%;
+    flex-basis: 48%; /* Ancho del grupo */
     margin-bottom: 15px;
 }
 
+/* Estilos de las etiquetas del formulario */
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
+/* Estilos de los campos de texto */
 input[type="text"] {
     width: 100%;
     padding: 8px;
@@ -46,15 +53,16 @@ input[type="text"] {
     border-radius: 4px;
 }
 
+/* Estilos de los botones */
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espacio entre botones */
     flex-basis: 100%;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto */
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -66,39 +74,46 @@ button {
     border-radius: 4px;
 }
 
+/* Estilos específicos para el botón de eliminar */
 button.delete-button {
-    background-color: #f44336;
+    background-color: #f44336; /* Color de fondo del botón de eliminar */
 }
 
+/* Estilos del contenedor de la tabla */
 .table-container {
     margin-top: 20px;
 }
 
+/* Estilos de la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
+/* Estilos de las celdas de la tabla */
 th, td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Borde de las celdas */
     text-align: left;
 }
 
+/* Estilos de las cabeceras de la tabla */
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* Color de fondo de las cabeceras */
+    color: white; /* Color del texto de las cabeceras */
 }
 
+/* Estilos de los enlaces que se comportan como botones */
 a.button {
-    background-color: #008CBA;
-    color: white;
+    background-color: #008CBA; /* Color de fondo del enlace-boton */
+    color: white; /* Color del texto del enlace-boton */
     padding: 8px 16px;
     text-decoration: none;
     border-radius: 4px;
     display: inline-block;
 }
 
+/* Estilos específicos para el enlace-boton de eliminar */
 a.button.delete-button {
-    background-color: #f44336;
+    background-color: #f44336; /* Color de fondo del enlace-boton de eliminar */
 }
